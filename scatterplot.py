@@ -4,22 +4,10 @@ import matplotlib.pyplot as plt
 with open('darts.csv', newline = '') as csvfile:
     csv_reader = csv.reader(csvfile)
     list = [[float(element) for element in row] for row in csv_reader]
-    # for row in csv_reader:
-    #     inner_list = []
-    #     for element in row:
-    #         inner_list.append(float(element))
-    #     list.append(inner_list) 
-    print(list)
 
-x_coords = []
-for i in range(len(list)):
-    x_coords.append(list[i][0])
-print(x_coords)
+x_coords = [list[i][0] for i in range(len(list))]
 
-y_coords = []
-for i in range(len(list)):
-    y_coords.append(list[i][1])
-print(y_coords)
+y_coords = [list[i][1] for i in range(len(list))]
 
 fig, ax = plt.subplots()
 
@@ -38,7 +26,5 @@ ax.spines['bottom'].set_color('blue')
 ax.spines['bottom'].set_position('zero')
 ax.spines['top'].set_color('none')
 ax.spines['right'].set_color('none')
-
-ax.yaxis.label.set_color('blue')
 
 plt.show()
